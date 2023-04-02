@@ -2,10 +2,7 @@ package id.kings.kluwypay;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import id.kings.kluwypay.model.transaction.DepositRouteResponse;
-import id.kings.kluwypay.model.transaction.PostDepositResponse;
-import id.kings.kluwypay.model.transaction.TrxStatusResponse;
-import id.kings.kluwypay.model.transaction.WithdrawInquiryResponse;
+import id.kings.kluwypay.model.transaction.*;
 import org.apache.commons.codec.digest.HmacUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -20,6 +17,14 @@ import java.util.Map;
 
 public class KluwyTransaction {
 
+    /**
+     *
+     * Get available deposit route
+     *
+     * @param kluwyAuth Authentication Object
+     * @param routeType the type of route usually "va" or "qris"
+     * @return {@link id.kings.kluwypay.model.transaction.DepositRouteResponse} Object
+     */
     public static DepositRouteResponse getDepositRoute(KluwyAuth kluwyAuth, String routeType) {
 
         DepositRouteResponse depositRouteResponse = null;
@@ -46,6 +51,14 @@ public class KluwyTransaction {
         return depositRouteResponse;
     }
 
+    /**
+     *
+     * Get Transaction Status based on refId
+     *
+     * @param kluwyAuth Authentication Object
+     * @param refId reference id that posted while you create the transaction
+     * @return {@link id.kings.kluwypay.model.transaction.TrxStatusResponse} Object
+     */
     public static TrxStatusResponse getTransactionStatus(KluwyAuth kluwyAuth, String refId) {
 
         TrxStatusResponse trxStatusResponse;
@@ -72,6 +85,14 @@ public class KluwyTransaction {
         return trxStatusResponse;
     }
 
+    /**
+     *
+     * Create deposit / Post Deposit
+     *
+     * @param kluwyAuth Authentication Object
+     * @param requestData Map Of Request Data
+     * @return {@link id.kings.kluwypay.model.transaction.PostDepositResponse} Object
+     */
     public static PostDepositResponse postDeposit(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestData) {
 
         PostDepositResponse postDepositResponse;
@@ -97,6 +118,14 @@ public class KluwyTransaction {
         return postDepositResponse;
     }
 
+    /**
+     *
+     * Get/Update Withdraw Status
+     *
+     * @param kluwyAuth Authentication Object
+     * @param requestData Map Of Request Data
+     * @return {@link id.kings.kluwypay.model.transaction.WithdrawInquiryResponse} Object
+     */
     public static WithdrawInquiryResponse withdrawInquiry(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestData) {
 
         WithdrawInquiryResponse withdrawInquiryResponse;
@@ -121,6 +150,39 @@ public class KluwyTransaction {
         }
 
         return withdrawInquiryResponse;
+    }
+
+    /**
+     * Withdraw Confirm
+     *
+     * @param kluwyAuth   Authentication Object
+     * @param requestData Map Of Request Data
+     * @return {@link id.kings.kluwypay.model.transaction.WithdrawConfirmResponse} Object
+     */
+    public static WithdrawConfirmResponse withdrawConfirm(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestData) {
+
+        WithdrawConfirmResponse withdrawConfirmResponse;
+
+        try {
+
+            String signature = getSignature(kluwyAuth, requestData);
+
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+            httpHeaders.set("accesstoken", "Bearer " + kluwyAuth.getAuthResponse().getData().getAccessToken());
+            httpHeaders.set("signature", signature);
+            httpHeaders.set("platform", "api");
+
+            RestTemplate restTemplate = new RestTemplate();
+            HttpEntity<Map<String, Object>> request = new HttpEntity<>(requestData, httpHeaders);
+
+            withdrawConfirmResponse = restTemplate.postForEntity(kluwyAuth.BASE_URL + "/v1/api/withdraw", request, WithdrawConfirmResponse.class).getBody();
+
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+
+        return withdrawConfirmResponse;
     }
 
     private static String getSignature(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestBody) throws JsonProcessingException {

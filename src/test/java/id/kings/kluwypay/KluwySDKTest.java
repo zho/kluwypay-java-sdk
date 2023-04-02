@@ -2,10 +2,7 @@ package id.kings.kluwypay;
 
 import id.kings.kluwypay.model.auth.AuthResponse;
 import id.kings.kluwypay.model.bank.BankListResponse;
-import id.kings.kluwypay.model.transaction.DepositRouteResponse;
-import id.kings.kluwypay.model.transaction.PostDepositResponse;
-import id.kings.kluwypay.model.transaction.TrxStatusResponse;
-import id.kings.kluwypay.model.transaction.WithdrawInquiryResponse;
+import id.kings.kluwypay.model.transaction.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
@@ -91,7 +88,7 @@ class KluwySDKTest {
 
         LinkedHashMap<String, Object> depositDataMap = new LinkedHashMap<>();
         depositDataMap.put("address", "12341234");
-        depositDataMap.put("amount", 1000000);
+        depositDataMap.put("amount", 100000000);
         depositDataMap.put("bankCode", "demo");
         depositDataMap.put("alias", "alias-lohh");
         depositDataMap.put("remarks", "alias-lohh");
@@ -127,6 +124,29 @@ class KluwySDKTest {
 
         assertInstanceOf(WithdrawInquiryResponse.class, withdrawInquiryResponse);
         assertEquals(1, Integer.parseInt(withdrawInquiryResponse.getStatus()));
+    }
+
+    @Test
+    void postWithdrawConfirm() {
+        String clientId = System.getenv("CLIENT_ID");
+        String clientSecret = System.getenv("CLIENT_SECRET");
+        String apiKey = System.getenv("API_KEY");
+        String secretKey = System.getenv("SECRET_KEY");
+
+        KluwyAuth kluwyAuth = new KluwyAuth(clientId, clientSecret, apiKey, secretKey, false);
+
+        LinkedHashMap<String, Object> requestDataMap = new LinkedHashMap<>();
+        requestDataMap.put("address", "12341234");
+        requestDataMap.put("amount", 1000000);
+        requestDataMap.put("alias", "alias-lohh");
+        requestDataMap.put("bankCode", "demo");
+        requestDataMap.put("remarks", "alias-lohh");
+        requestDataMap.put("refId", generateRandomString(10));
+
+        WithdrawConfirmResponse withdrawConfirmResponse = KluwyTransaction.withdrawConfirm(kluwyAuth, requestDataMap);
+
+        assertInstanceOf(WithdrawConfirmResponse.class, withdrawConfirmResponse);
+        assertEquals(1, Integer.parseInt(withdrawConfirmResponse.getStatus()));
     }
 
     public static String generateRandomString(int length) {

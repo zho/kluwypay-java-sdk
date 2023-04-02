@@ -12,6 +12,13 @@ import java.util.Map;
 
 public class KluwyBank {
 
+    /**
+     *
+     * Get bank list available in kluwypay
+     *
+     * @param kluwyAuth Authentication Object
+     * @return {@link id.kings.kluwypay.model.bank.BankListResponse} Object
+     */
     public static BankListResponse getBankList(KluwyAuth kluwyAuth) {
 
         HttpHeaders httpHeaders = new HttpHeaders();
