@@ -56,7 +56,7 @@ depositDataMap.put("alias", "alias-lohh");
 depositDataMap.put("remarks", "alias-lohh");
 depositDataMap.put("type", "va");
 depositDataMap.put("addressName", "<Bank Account Owner's>");
-depositDataMap.put("channelId", "44689828-4479-4299-a32d-59073237657e");
+depositDataMap.put("channelId", "<your partner's channel id>");
 depositDataMap.put("refId", <reference id>);
 
 PostDepositResponse postDepositResponse = KluwyTransaction.postDeposit(kluwyAuth, depositDataMap);
