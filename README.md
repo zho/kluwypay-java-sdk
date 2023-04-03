@@ -39,7 +39,7 @@ BankListResponse bankListResponse = KluwyBank.getBankList(kluwyAuth);
 ```
 ### Get Available Deposit Route
 ```
-DepositRouteResponse depositRouteResponse = KluwyTransaction.getDepositRoute(kluwyAuth, "<deposit type>");
+DepositRouteResponse depositRouteResponse = KluwyTransaction.getDepositRoute(kluwyAuth, "<deposit type va|qris>");
 ```
 ### Get Transaction Status
 ```
