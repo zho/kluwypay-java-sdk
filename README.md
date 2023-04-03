@@ -49,13 +49,13 @@ TrxStatusResponse trxStatusResponse = KluwyTransaction.getTransactionStatus(kluw
 ### Create Deposit Transaction
 ```
 LinkedHashMap<String, Object> depositDataMap = new LinkedHashMap<>();
-depositDataMap.put("address", "12341234");
+depositDataMap.put("address", "<bank account number>");
 depositDataMap.put("amount", 100000000);
 depositDataMap.put("bankCode", "demo");
 depositDataMap.put("alias", "alias-lohh");
 depositDataMap.put("remarks", "alias-lohh");
 depositDataMap.put("type", "va");
-depositDataMap.put("addressName", "JOANDI TEST");
+depositDataMap.put("addressName", "<Bank Account Owner's>");
 depositDataMap.put("channelId", "44689828-4479-4299-a32d-59073237657e");
 depositDataMap.put("refId", <reference id>);
 
@@ -64,7 +64,7 @@ PostDepositResponse postDepositResponse = KluwyTransaction.postDeposit(kluwyAuth
 ### Create Withdraw Inquiry
 ```
 LinkedHashMap<String, Object> requestDataMap = new LinkedHashMap<>();
-requestDataMap.put("address", "12341234");
+requestDataMap.put("address", "<bank account number>");
 requestDataMap.put("amount", 1000000);
 requestDataMap.put("alias", "alias-lohh");
 requestDataMap.put("bankCode", "demo");
@@ -76,7 +76,7 @@ WithdrawInquiryResponse withdrawInquiryResponse = KluwyTransaction.withdrawInqui
 ### Create Withdraw Confirmation
 ```
 LinkedHashMap<String, Object> requestDataMap = new LinkedHashMap<>();
-requestDataMap.put("address", "12341234");
+requestDataMap.put("address", "<bank account number>");
 requestDataMap.put("amount", 1000000);
 requestDataMap.put("alias", "alias-lohh");
 requestDataMap.put("bankCode", "demo");
