@@ -56,7 +56,7 @@ depositDataMap.put("remarks", "alias-lohh");
 depositDataMap.put("type", "va");
 depositDataMap.put("addressName", "JOANDI TEST");
 depositDataMap.put("channelId", "44689828-4479-4299-a32d-59073237657e");
-depositDataMap.put("refId", generateRandomString(10));
+depositDataMap.put("refId", <reference id>);
 
 PostDepositResponse postDepositResponse = KluwyTransaction.postDeposit(kluwyAuth, depositDataMap);
 ```
@@ -68,7 +68,7 @@ requestDataMap.put("amount", 1000000);
 requestDataMap.put("alias", "alias-lohh");
 requestDataMap.put("bankCode", "demo");
 requestDataMap.put("remarks", "alias-lohh");
-requestDataMap.put("refId", generateRandomString(10));
+requestDataMap.put("refId", <reference id>);
 
 WithdrawInquiryResponse withdrawInquiryResponse = KluwyTransaction.withdrawInquiry(kluwyAuth, requestDataMap);
 ```
@@ -80,7 +80,7 @@ requestDataMap.put("amount", 1000000);
 requestDataMap.put("alias", "alias-lohh");
 requestDataMap.put("bankCode", "demo");
 requestDataMap.put("remarks", "alias-lohh");
-requestDataMap.put("refId", generateRandomString(10));
+requestDataMap.put("refId", <reference id>);
 
 WithdrawConfirmResponse withdrawConfirmResponse = KluwyTransaction.withdrawConfirm(kluwyAuth, requestDataMap);
 ```
