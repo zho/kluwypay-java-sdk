@@ -24,6 +24,7 @@ add dependency to pom.xml
 
 # Usage
 ## Authentication
+to use the api functionality, you need to get client id, client secret, api key, secret key from kluwypay's partner dashboard
 ```
 String clientId = System.getenv("CLIENT_ID");
 String clientSecret = System.getenv("CLIENT_SECRET");
