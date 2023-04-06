@@ -1,11 +1,12 @@
-package id.kings.kluwypay.model.transaction;
+package io.github.zho.model.transaction;
 
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TrxStatusResponse{
+public class DepositRouteResponse{
 
 	@JsonProperty("data")
-	private TrxStatusItem trxStatusItem;
+	private List<TrxItem> data;
 
 	@JsonProperty("message")
 	private String message;
@@ -13,8 +14,8 @@ public class TrxStatusResponse{
 	@JsonProperty("status")
 	private String status;
 
-	public TrxStatusItem getData(){
-		return trxStatusItem;
+	public List<TrxItem> getData(){
+		return data;
 	}
 
 	public String getMessage(){

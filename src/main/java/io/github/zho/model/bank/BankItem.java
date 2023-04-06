@@ -1,4 +1,4 @@
-package id.kings.kluwypay.model.bank;
+package io.github.zho.model.bank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

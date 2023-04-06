@@ -3,20 +3,10 @@ Kluwypay Integration Java SDK
 
 # Installation
 
-add the repository configuration in your pom.xml
-```
-<repositories>
-  <repository>
-    <id>kluwypay-java-sdk</id>
-    <url>https://zho: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@maven.pkg.github.com/zho/kluwypay-java-sdk</url>
-  </repository>
-</repositories>
-```
-
 add dependency to pom.xml
 ```
 <dependency>
-  <groupId>id.kings.kluwypay</groupId>
+  <groupId>io.github.zho</groupId>
   <artifactId>kluwypay-java-sdk</artifactId>
   <version>1.0</version>
 </dependency>

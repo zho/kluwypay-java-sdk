@@ -1,8 +1,8 @@
-package id.kings.kluwypay;
+package io.github.zho;
 
-import id.kings.kluwypay.model.auth.AuthResponse;
-import id.kings.kluwypay.model.bank.BankListResponse;
-import id.kings.kluwypay.model.transaction.*;
+import io.github.zho.model.auth.AuthResponse;
+import io.github.zho.model.bank.BankListResponse;
+import io.github.zho.model.transaction.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;

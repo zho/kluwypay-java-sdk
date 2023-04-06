@@ -1,6 +1,6 @@
-package id.kings.kluwypay;
+package io.github.zho;
 
-import id.kings.kluwypay.model.auth.AuthResponse;
+import io.github.zho.model.auth.AuthResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

@@ -1,6 +1,6 @@
-package id.kings.kluwypay;
+package io.github.zho;
 
-import id.kings.kluwypay.model.bank.BankListResponse;
+import io.github.zho.model.bank.BankListResponse;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,7 +17,7 @@ public class KluwyBank {
      * Get bank list available in kluwypay
      *
      * @param kluwyAuth Authentication Object
-     * @return {@link id.kings.kluwypay.model.bank.BankListResponse} Object
+     * @return {@link BankListResponse} Object
      */
     public static BankListResponse getBankList(KluwyAuth kluwyAuth) {
 

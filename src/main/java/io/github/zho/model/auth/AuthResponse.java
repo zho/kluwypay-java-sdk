@@ -1,4 +1,4 @@
-package id.kings.kluwypay.model.auth;
+package io.github.zho.model.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

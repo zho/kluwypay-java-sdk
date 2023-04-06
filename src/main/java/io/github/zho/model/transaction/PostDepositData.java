@@ -1,8 +1,9 @@
-package id.kings.kluwypay.model.transaction;
+package io.github.zho.model.transaction;
 
+import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TrxStatusItem {
+public class PostDepositData {
 
 	@JsonProperty("bankCode")
 	private String bankCode;
@@ -11,7 +12,7 @@ public class TrxStatusItem {
 	private int amount;
 
 	@JsonProperty("fees")
-	private String fees;
+	private List<FeesItem> fees;
 
 	@JsonProperty("address")
 	private String address;
@@ -63,7 +64,7 @@ public class TrxStatusItem {
 		return amount;
 	}
 
-	public String getFees(){
+	public List<FeesItem> getFees(){
 		return fees;
 	}
 

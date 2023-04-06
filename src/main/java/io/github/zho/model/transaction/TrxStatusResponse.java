@@ -1,11 +1,11 @@
-package id.kings.kluwypay.model.transaction;
+package io.github.zho.model.transaction;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PostDepositResponse{
+public class TrxStatusResponse{
 
 	@JsonProperty("data")
-	private PostDepositData postDepositData;
+	private TrxStatusItem trxStatusItem;
 
 	@JsonProperty("message")
 	private String message;
@@ -13,8 +13,8 @@ public class PostDepositResponse{
 	@JsonProperty("status")
 	private String status;
 
-	public PostDepositData getData(){
-		return postDepositData;
+	public TrxStatusItem getData(){
+		return trxStatusItem;
 	}
 
 	public String getMessage(){

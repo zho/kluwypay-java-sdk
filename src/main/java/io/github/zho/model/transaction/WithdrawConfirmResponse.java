@@ -1,11 +1,11 @@
-package id.kings.kluwypay.model.transaction;
+package io.github.zho.model.transaction;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class WithdrawInquiryResponse{
+public class WithdrawConfirmResponse{
 
 	@JsonProperty("data")
-	private WithdrawInquiryData withdrawInquiryData;
+	private WithdrawConfirmData withdrawConfirmData;
 
 	@JsonProperty("message")
 	private String message;
@@ -13,12 +13,12 @@ public class WithdrawInquiryResponse{
 	@JsonProperty("status")
 	private String status;
 
-	public void setData(WithdrawInquiryData withdrawInquiryData){
-		this.withdrawInquiryData = withdrawInquiryData;
+	public void setData(WithdrawConfirmData withdrawConfirmData){
+		this.withdrawConfirmData = withdrawConfirmData;
 	}
 
-	public WithdrawInquiryData getData(){
-		return withdrawInquiryData;
+	public WithdrawConfirmData getData(){
+		return withdrawConfirmData;
 	}
 
 	public void setMessage(String message){

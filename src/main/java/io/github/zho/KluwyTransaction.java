@@ -1,8 +1,8 @@
-package id.kings.kluwypay;
+package io.github.zho;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import id.kings.kluwypay.model.transaction.*;
+import io.github.zho.model.transaction.*;
 import org.apache.commons.codec.digest.HmacUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,7 +23,7 @@ public class KluwyTransaction {
      *
      * @param kluwyAuth Authentication Object
      * @param routeType the type of route usually "va" or "qris"
-     * @return {@link id.kings.kluwypay.model.transaction.DepositRouteResponse} Object
+     * @return {@link DepositRouteResponse} Object
      */
     public static DepositRouteResponse getDepositRoute(KluwyAuth kluwyAuth, String routeType) {
 
@@ -57,7 +57,7 @@ public class KluwyTransaction {
      *
      * @param kluwyAuth Authentication Object
      * @param refId reference id that posted while you create the transaction
-     * @return {@link id.kings.kluwypay.model.transaction.TrxStatusResponse} Object
+     * @return {@link TrxStatusResponse} Object
      */
     public static TrxStatusResponse getTransactionStatus(KluwyAuth kluwyAuth, String refId) {
 
@@ -91,7 +91,7 @@ public class KluwyTransaction {
      *
      * @param kluwyAuth Authentication Object
      * @param requestData Map Of Request Data
-     * @return {@link id.kings.kluwypay.model.transaction.PostDepositResponse} Object
+     * @return {@link PostDepositResponse} Object
      */
     public static PostDepositResponse postDeposit(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestData) {
 
@@ -124,7 +124,7 @@ public class KluwyTransaction {
      *
      * @param kluwyAuth Authentication Object
      * @param requestData Map Of Request Data
-     * @return {@link id.kings.kluwypay.model.transaction.WithdrawInquiryResponse} Object
+     * @return {@link WithdrawInquiryResponse} Object
      */
     public static WithdrawInquiryResponse withdrawInquiry(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestData) {
 
@@ -157,7 +157,7 @@ public class KluwyTransaction {
      *
      * @param kluwyAuth   Authentication Object
      * @param requestData Map Of Request Data
-     * @return {@link id.kings.kluwypay.model.transaction.WithdrawConfirmResponse} Object
+     * @return {@link WithdrawConfirmResponse} Object
      */
     public static WithdrawConfirmResponse withdrawConfirm(KluwyAuth kluwyAuth, LinkedHashMap<String, Object> requestData) {
 

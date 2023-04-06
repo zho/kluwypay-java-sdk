@@ -1,4 +1,4 @@
-package id.kings.kluwypay.model.transaction;
+package io.github.zho.model.transaction;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
